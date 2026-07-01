@@ -1,0 +1,8 @@
+
+/* ========================================
+   Shared styles across all pages
+   ======================================== */
+ 
+/* ---- Links ---- */
+a{color:#1a56db; text-decoration:none;}
+a:hover{color:#1134a6;}
