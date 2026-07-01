@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jyotsna G </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#1a1a1a;
+    --ink-soft:#54565c;
+    --line:#e4e4e4;
+    --accent:#2b3a67;
+    --accent-soft:#5b8a87;
+    --tag:#f4f5f8;
+    --nav-h:56px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    display:flex;
+    flex-direction:column;
+  }
+  a{color:#1a56db; text-decoration:none;}
+  a:hover{color:#1134a6;}
+
+  /* ---- NAV ---- */
+  nav{
+    height:var(--nav-h);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 48px;
+    position:sticky;
+    top:0;
+    background:#fff;
+    z-index:10;
+    flex-shrink:0;
+  }
+  .nav-brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:.05em;
+    color:var(--ink);
+    font-weight:500;
+  }
+  .nav-links{display:flex; gap:32px;}
+  .nav-links a{
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-soft);
+    letter-spacing:.01em;
+    transition:color .15s;
+    padding-bottom:3px;
+    border-bottom:2px solid transparent;
+  }
+  .nav-links a:hover,
+  .nav-links a.active{
+    color:var(--accent);
+    border-bottom-color:var(--accent);
+  }
+
+  /* ---- HOME LAYOUT ---- */
+  .home-wrap{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 48px;
+    max-width:1000px;
+    margin:0 auto;
+    width:100%;
+    gap:60px;
+  }
+
+  /* Photo */
+  .photo-col{flex-shrink:0;}
+  .photo-frame{
+    width:280px;
+    height:280px;
+    border-radius:8px;
+    background:var(--tag);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .photo-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+  .photo-frame .placeholder{
+    text-align:center;
+    color:#9a9a9a;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    padding:10px;
+    line-height:1.7;
+  }
+
+  /* Text column */
+  .text-col{flex:1; min-width:0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--accent-soft);
+    margin-bottom:8px;
+    margin-top:14px;   
+  }
+  h1{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:38px;
+    letter-spacing:-0.01em;
+    line-height:1.15;
+    margin-bottom:6px;
+  }
+  .role{
+    font-size:15.5px;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+    line-height:1.5;
+  }
+  .role span{color:var(--accent);}
+
+  /* Bio */
+  .bio{
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.65;
+    margin-bottom:20px;
+    max-width:520px;
+  }
+
+  /* CV button */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--accent);
+    color:#fff;
+    padding:9px 16px;
+    border-radius:6px;
+    font-size:13.5px;
+    font-weight:500;
+    margin-bottom:22px;
+    white-space:nowrap;
+    transition:background .15s;
+  }
+  .btn:hover{background:var(--accent-soft);color:#fff;}
+  .btn svg{width:14px;height:14px;fill:#fff;}
+
+  /* Pills */
+  .links{display:flex;flex-wrap:wrap;gap:8px;}
+  .link-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 12px 6px 9px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    font-size:13px;
+    color:var(--ink);
+    background:#fff;
+    transition:border-color .15s,background .15s;
+  }
+  .link-pill svg{width:15px;height:15px;flex-shrink:0;fill:var(--accent);}
+  .link-pill:hover{border-color:var(--accent-soft);background:var(--tag);color:var(--ink);}
+
+  /* Lattice divider — used as subtle HR between pill groups */
+  .lattice-mini{
+    display:flex;
+    align-items:center;
+    gap:0;
+    margin:14px 0 14px;
+    user-select:none;
+    max-width:520px;
+  }
+  .lattice-mini .seg{flex:1;height:1px;background:var(--line);}
+  .lattice-mini .site{width:5px;height:5px;border-radius:50%;background:var(--accent);margin:0 5px;flex-shrink:0;}
+  .lattice-mini .bond{width:20px;height:1px;background:var(--accent);opacity:.3;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:14px 48px;
+    font-size:12px;
+    color:#aaa;
+    font-family:'IBM Plex Mono',monospace;
+    flex-shrink:0;
+  }
+
+  @media(max-width:700px){
+    nav{padding:0 20px;}
+    .home-wrap{flex-direction:column;padding:30px 20px;gap:28px;align-items:flex-start;}
+    .photo-frame{width:160px;height:160px;}
+    h1{font-size:28px;}
+    footer{padding:14px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<script>
+  fetch('nav.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('nav-placeholder').innerHTML = html;
+      const current = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        if (a.getAttribute('href') === current) a.classList.add('active');
+      });
+    });
+</script>
+
+<div class="home-wrap">
+
+  <!-- LEFT: Photo -->
+  <div class="photo-col">
+    <div class="photo-frame">
+      <!-- Replace with: <img src="photo.jpg" alt="Your Name"> -->
+      <img src="photo.jpg" alt="Jyotsna Gidugu">
+    </div>
+  </div>
+
+  <!-- RIGHT: Text -->
+  <div class="text-col">
+    <p class="eyebrow">PhD Student · Theoretical &amp; Computational Physics</p>
+    <h1>Jyotsna Gidugu</h1>
+    <p class="role">Condensed Matter Physics ·<br>
+      <span style="color:#1a1a1a; font-size:13px;"> Open Quantum Systems </span>
+    </p>
+
+    <p class="bio">
+      I am a PhD student at UC San Diego working with <a href="https://profiles.ucsd.edu/daniel.arovas" target="_blank" rel="noopener">Prof. Daniel Arovas</a> on open quantum systems and non-equilibrium steady states,
+      with a focus on the effects of dissipation and dephasing.
+      My work involves formulating the effects of the environment on many-body fermionic quantum systems and understanding how the mixed states thereby obtained can be studied
+      to understand phase transitions and time scales ivolved in these systems.
+      I am on the job market for postdoctoral positions starting June 2027.
+    </p>
+
+    <p class="bio">
+      I completed my bachelor's and master's at IISc Bengaluru. For my theses, I worked on many-body localization (bachelor's) and Josephson Junction arrays (master's) with <a href="https://physics.iisc.ac.in/~smukerjee/" target="_blank" rel="noopener">Prof. Subroto Mukerjee</a> and <a href="https://physics.iisc.ac.in/~hrkrish/" target="_blank" rel="noopener">Prof. H R Krishnamurthy</a>. 
+    </p>
+
+    <p class="bio">
+      During summer internships, I have also worked on experimental studies of topological hall effect and magnetoresistance in thin films. 
+    </p>
+
+    <p class="bio">
+      My CV and other relevant links can be found below. You can use the tabs at the top of this page to navigate to other pages.
+    </p>
+
+     <p class="bio">
+      <strong>Email:</strong> jgidugu <em>at</em> ucsd <em>dot</em> edu
+    </p>
+
+    <a class="btn" href="cv.pdf" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19 9h-4v-6h-6v6h-4l7 7 7-7zm-14 9v2h14v-2h-14z"/></svg>
+      Download CV
+    </a>
+
+    <div class="lattice-mini">
+      <span class="seg"></span>
+      <span class="site"></span><span class="bond"></span>
+      <span class="site"></span><span class="bond"></span>
+      <span class="site"></span>
+      <span class="seg"></span>
+    </div>
+
+    <div class="links">
+      <a class="link-pill" href="https://www.linkedin.com/in/jyotsna-gidugu" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 10.28h-3v-4.5c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.73 1.17-1.73 2.38v4.57h-3v-9h2.88v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v4.74z"/></svg>
+        LinkedIn
+      </a>
+      <a class="link-pill" href="https://scholar.google.com/citations?user=XAgdUK8AAAAJ" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 0l-12 9 4 3.1v9.9l8-4.8 8 4.8v-9.9l2-1.6v8.5h2v-9.6l-12-9.4zm0 13.5l-7.5-5.7 7.5-5.7 7.5 5.7-7.5 5.7zm-5 1.5l5 3.8 5-3.8v5.5l-5 3-5-3v-5.5z"/></svg>
+        Google Scholar
+      </a>
+      <a class="link-pill" href="https://github.com/jyotsnagsv" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 0c-6.63 0-12 5.37-12 12 0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.3 3.49.99.11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.41 1.02.01 2.04.14 3 .41 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.29 0 .32.22.69.83.58 4.76-1.6 8.2-6.1 8.2-11.39 0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a class="link-pill" href="mailto:jgidugu@ucsd.edu">
+        <svg viewBox="0 0 24 24"><path d="M22 4h-20c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2v-12c0-1.1-.9-2-2-2zm0 4.236l-10 6.25-10-6.25v-2.236l10 6.25 10-6.25v2.236z"/></svg>
+        University Email
+      </a>
+      <a class="link-pill" href="mailto:jyotsnagsv@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M22 4h-20c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2v-12c0-1.1-.9-2-2-2zm0 4.236l-10 6.25-10-6.25v-2.236l10 6.25 10-6.25v2.236z"/></svg>
+        Personal Email
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>Last updated: <span id="last-updated"></span> · jyotsnagsv.github.io</footer>
+<script>
+  document.getElementById('last-updated').textContent =
+    new Date(document.lastModified).toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+</script>
+
+</body>
+</html>

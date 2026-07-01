@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching — Your Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --ink:#1a1a1a; --ink-soft:#54565c;
+    --line:#e4e4e4; --accent:#2b3a67; --accent-soft:#5b8a87; --tag:#f4f5f8;
+    --nav-h:56px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{color:var(--accent-soft);}
+
+  nav{height:var(--nav-h);border-bottom:1px solid var(--line);display:flex;align-items:center;
+    justify-content:space-between;padding:0 48px;position:sticky;top:0;background:#fff;z-index:10;}
+  .nav-brand{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.05em;color:var(--ink);font-weight:500;}
+  .nav-links{display:flex;gap:32px;}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--ink-soft);letter-spacing:.01em;
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:color .15s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--accent);border-bottom-color:var(--accent);}
+
+  .wrap{max-width:800px;margin:0 auto;padding:56px 28px 100px;}
+
+  .page-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--accent-soft);margin-bottom:10px;}
+  h1{font-family:'Source Serif 4',serif;font-weight:700;font-size:34px;letter-spacing:-0.01em;margin-bottom:6px;}
+  .page-intro{color:var(--ink-soft);font-size:15px;margin-bottom:40px;max-width:580px;line-height:1.65;}
+
+  .lattice{display:flex;align-items:center;margin:40px 0;user-select:none;}
+  .lattice .seg{flex:1;height:1px;background:var(--line);}
+  .lattice .site{width:7px;height:7px;border-radius:50%;background:var(--accent);margin:0 6px;flex-shrink:0;}
+  .lattice .bond{width:34px;height:1px;background:var(--accent);opacity:.35;}
+
+  h2{font-family:'Source Serif 4',serif;font-size:20px;font-weight:600;margin-bottom:20px;color:var(--ink);}
+
+  .card{border-left:2px solid var(--line);padding:4px 0 4px 20px;margin-bottom:26px;}
+  .card h3{font-weight:600;font-size:15.5px;color:var(--ink);margin-bottom:4px;}
+  .card .when{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent-soft);margin-bottom:6px;display:block;}
+  .card p{font-size:14px;color:var(--ink-soft);margin-bottom:0;}
+  .card .tag-inline{
+    display:inline-block;margin-top:8px;font-size:12px;
+    font-family:'IBM Plex Mono',monospace;padding:3px 9px;
+    border-radius:10px;background:var(--tag);border:1px solid var(--line);color:var(--accent-soft);
+  }
+
+  /* Teaching philosophy block */
+  .philosophy{
+    background:var(--tag);border:1px solid var(--line);border-radius:8px;
+    padding:22px 26px;margin-bottom:32px;
+  }
+  .philosophy p{font-size:14.5px;color:var(--ink-soft);margin-bottom:0;line-height:1.7;}
+
+  footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:12px;color:#aaa;text-align:center;font-family:'IBM Plex Mono',monospace;}
+
+  @media(max-width:600px){nav{padding:0 18px;}.nav-brand{display:none;}
+    .wrap{padding:36px 18px 70px;}h1{font-size:26px;}}
+</style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<script>
+  fetch('nav.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('nav-placeholder').innerHTML = html;
+      const current = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        if (a.getAttribute('href') === current) a.classList.add('active');
+      });
+    });
+</script>
+
+<div class="wrap">
+  <p class="page-eyebrow">Teaching</p>
+  <h1>Teaching &amp; Mentoring</h1>
+  <p class="page-intro">
+    I care deeply about clear, honest communication of difficult ideas.
+    Below is a record of my teaching and mentoring activities — feel free to replace
+    the placeholder entries with your own courses, evaluations, and mentees.
+  </p>
+
+  <!-- Teaching philosophy -->
+  <div class="philosophy">
+    <p>
+      <strong>Teaching philosophy (2–3 sentences).</strong> For example:
+      I believe that genuine understanding in physics comes from knowing not just what the answer is,
+      but why other answers fail. My goal in every classroom and office-hours session is to help
+      students build that negative space — the set of things they now confidently know are wrong —
+      as much as the positive knowledge of what is right.
+    </p>
+  </div>
+
+  <h2>Courses</h2>
+
+  <div class="card">
+    <span class="when">Fall 2024</span>
+    <h3>Teaching Assistant — Quantum Mechanics I</h3>
+    <p>Led weekly problem-solving sessions for ~40 undergraduates; held office hours; 
+       designed and graded problem sets. <br>Course instructor: Prof. [Name].</p>
+    <span class="tag-inline">Undergraduate</span>
+  </div>
+
+  <div class="card">
+    <span class="when">Spring 2023</span>
+    <h3>Teaching Assistant — Statistical Mechanics</h3>
+    <p>Graded coursework, ran review sessions before exams, 
+       and received [award / teaching evaluation score / recognition] for student feedback.</p>
+    <span class="tag-inline">Undergraduate</span>
+  </div>
+
+  <div class="card">
+    <span class="when">Fall 2022</span>
+    <h3>Teaching Assistant — Classical Mechanics</h3>
+    <p>Ran weekly recitation sections and held office hours for ~50 students.</p>
+    <span class="tag-inline">Undergraduate</span>
+  </div>
+
+  <div class="lattice">
+    <span class="seg"></span><span class="site"></span><span class="bond"></span>
+    <span class="site"></span><span class="bond"></span><span class="site"></span>
+    <span class="bond"></span><span class="site"></span><span class="seg"></span>
+  </div>
+
+  <h2>Mentoring</h2>
+
+  <div class="card">
+    <span class="when">2023 — present</span>
+    <h3>Undergraduate Research Mentor</h3>
+    <p>Supervised [Student Name] on a project about [topic]; 
+       [Student Name] went on to [outcome, e.g., present at X conference / graduate school at Y].</p>
+    <span class="tag-inline">Research mentoring</span>
+  </div>
+
+  <div class="card">
+    <span class="when">2022</span>
+    <h3>Physics Olympiad Coaching</h3>
+    <p>Helped coach high-school students preparing for [competition]; covered classical mechanics
+       and modern physics topics.</p>
+    <span class="tag-inline">Outreach</span>
+  </div>
+
+  <div class="lattice">
+    <span class="seg"></span><span class="site"></span><span class="bond"></span>
+    <span class="site"></span><span class="bond"></span><span class="site"></span>
+    <span class="bond"></span><span class="site"></span><span class="seg"></span>
+  </div>
+
+  <h2>Teaching-related Materials</h2>
+
+  <div class="card">
+    <span class="when">2024</span>
+    <h3>Problem sets / lecture notes</h3>
+    <p>Links to any notes, problem sets, or lecture slides you've written and want to share publicly.
+       <a href="#">Example notes PDF</a></p>
+  </div>
+
+  <footer>← <a href="index.html">Back to Home</a></footer>
+</div>
+
+</body>
+</html>
