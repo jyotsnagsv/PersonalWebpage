@@ -6,3 +6,5 @@
 /* ---- Links ---- */
 a{color:#1a56db; text-decoration:none;}
 a:hover{color:#1134a6;}
+ul{padding-left:20px; margin-bottom:10px;}
+li{margin-bottom:4px; color:var(--ink-soft); font-size:14px;}
